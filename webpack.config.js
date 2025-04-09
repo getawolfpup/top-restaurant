@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // Change to 'production' for production builds
+  mode: "production", // Change to 'production' for production builds
   entry: "./src/index.js", // Your main JavaScript entry point
 
   output: {
