@@ -1,19 +1,18 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+import path from "path";
+import { fileURLToPath } from "url";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
-module.exports = {
-  mode: "production", // Change to 'production' for production builds
-  entry: "./src/index.js", // Your main JavaScript entry point
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
+  mode: "production",
+  entry: "./src/index.js",
 
   output: {
     filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
-    clean: true, // Cleans the dist folder before each build
-  },
-
-  devtool: "eval-source-map",
-  devServer: {
-    watchFiles: ["./src/index.html"],
+    clean: true,
   },
 
   module: {
@@ -43,7 +42,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html", // Path to your HTML template
+      template: "./src/index.html",
       filename: "index.html",
     }),
   ],
